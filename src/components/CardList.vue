@@ -1,5 +1,6 @@
 <script>
 import SingleCard from './SingleCard.vue';
+import axios from 'axios';
 
 export default {
   data() {
@@ -9,16 +10,19 @@ export default {
     }
   },
   methods: {
-    addApi(){
+    createCards(){
         axios.get(this.apiUrl)
             .then((response) => {
-                console.log(response.data.data[0].id)
-                return this.cards
+                console.log(response.data.data[0].name)
+                for (let i = 0; i < 20; i++) {
+                    this.cards.push(response.data.data[i])
+                }
+                console.log(this.cards)
             });
     } 
   },
   mounted() {
-        this.addApi();
+        this.createCards();
   },
   components: {
     SingleCard
@@ -29,9 +33,16 @@ export default {
 <template>
     <main>
         <h2>Number of cards</h2>
-        <SingleCard v-for="card in cards"/>
+        <div class="card-list">
+            <SingleCard v-for="(card, index) in cards" :key="index"
+                :card = "card"
+            />
+        </div>
     </main>
 </template>
 
 <style scoped>
+    .card-list {
+        display: flex;
+    }
 </style>
