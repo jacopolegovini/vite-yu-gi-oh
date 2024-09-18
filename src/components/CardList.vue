@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-    <main>
+    <main class="card-list-general">
         <h2>Number of cards</h2>
         <div class="card-list">
             <SingleCard v-for="(card, index) in cards" :key="index"
@@ -42,7 +42,17 @@ export default {
 </template>
 
 <style scoped>
+    h2 {
+        background-color: black;
+        color: white;
+    }
+    .card-list-general {
+        background-color: white;
+        padding: 30px;
+    }
     .card-list {
         display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 </style>

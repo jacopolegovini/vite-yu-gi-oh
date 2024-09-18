@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <header>
+    <header class="container">
         <h1>Yu-Gi-Oh API</h1>
     </header>
 </template>

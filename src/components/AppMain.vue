@@ -14,9 +14,11 @@ export default {
 </script>
 
 <template>
-    <main>
-        <h1>test</h1>
-        <CardList/>
+    <main >
+        <div class="container">
+            <h1>test</h1>
+            <CardList/>
+        </div>
     </main>
 </template>
 

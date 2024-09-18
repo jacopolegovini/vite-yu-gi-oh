@@ -27,12 +27,7 @@ export default {
 </template>
 
 <style scoped>
-    img {
-        height: 250px;
-    }
-
     .card {
-        flex-basis: 20%;
-
+        flex-basis: calc((100% / 5) - (80px / 5) );
     }
 </style>
