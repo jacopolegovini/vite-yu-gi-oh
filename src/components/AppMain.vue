@@ -16,7 +16,6 @@ export default {
 <template>
     <main >
         <div class="container">
-            <h1>test</h1>
             <CardList/>
         </div>
     </main>

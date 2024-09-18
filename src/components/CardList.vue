@@ -32,7 +32,7 @@ export default {
 
 <template>
     <main class="card-list-general">
-        <h2>Number of cards</h2>
+        <h3>Number of cards: {{ cards.length }}</h3>
         <div class="card-list">
             <SingleCard v-for="(card, index) in cards" :key="index"
                 :card = "card"
@@ -42,9 +42,10 @@ export default {
 </template>
 
 <style scoped>
-    h2 {
+    h3 {
         background-color: black;
         color: white;
+        padding: 10px ;
     }
     .card-list-general {
         background-color: white;
