@@ -9,9 +9,9 @@ export default {
 </script>
 
 <template>
-    <header>
-        <h1>Yu-Gi-Oh API</h1>
-    </header>
+    <main>
+        <h3>card</h3>
+    </main>
 </template>
 
 <style scoped>
