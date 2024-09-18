@@ -1,14 +1,27 @@
 <script>
 import CardList from './CardList.vue';
+import LoaderCardList from './LoaderCardList.vue';
+import { store } from './store.js';
 
 export default {
   data() {
     return {
-      
+      store,
     }
   },
+  methods: {
+    myTimeout() {
+        setTimeout(() => {
+            store.changeVariable();
+        }, 2000);
+    }
+  },
+  mounted() {
+    this.myTimeout()
+  },
   components: {
-    CardList
+    CardList,
+    LoaderCardList
   }
 }
 </script>
@@ -16,7 +29,8 @@ export default {
 <template>
     <main >
         <div class="container">
-            <CardList/>
+            <div v-show="store.loaded===true"><CardList/></div>
+            <div v-show="store.loaded===false"><LoaderCardList/></div>
         </div>
     </main>
 </template>

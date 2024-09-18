@@ -14,7 +14,7 @@ export default {
         axios.get(this.apiUrl)
             .then((response) => {
                 console.log(response.data.data[0].name)
-                for (let i = 0; i < 20; i++) {
+                for (let i = 0; i < response.data.data.length; i++) {
                     this.cards.push(response.data.data[i])
                 }
                 console.log(this.cards)

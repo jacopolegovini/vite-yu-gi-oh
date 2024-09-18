@@ -1,10 +1,7 @@
 <script>
-import { store } from './store';
-
 export default {
   data() {
     return {
-      store
     }
   },
   props: {
@@ -12,7 +9,7 @@ export default {
         card_images: {
             image_url: {
                 type: String,
-            required: true
+                required: true
             }
         }, 
         name: {
