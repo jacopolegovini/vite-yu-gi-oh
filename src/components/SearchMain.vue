@@ -7,6 +7,13 @@ export default {
       searchedName: ''
     }
   },
+  methods: {
+    searchName() {
+        console.log(this.searchedName)
+        this.$emit('findName')
+    }
+  },
+
   props: {
     cards: {
         type: Array,
@@ -20,9 +27,11 @@ const searchedName = ''
 
 <template>
     <div class="search-input">
-        <select v-model="searchedName" @change="console.log(searchedName)">
+        <select v-model="searchedName" @change="searchName">
             <option disabled value="">Seleziona un archetipo</option>
-            <option v-for="card in cards">{{ card.archetype }}</option>
+            <option v-for="(card, index) in cards" :key="index">
+                <div>{{ card.archetype }}</div>
+            </option>
             <option>test2</option>
         </select>
     </div>

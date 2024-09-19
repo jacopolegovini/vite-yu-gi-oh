@@ -20,7 +20,10 @@ export default {
                 }
                 console.log(this.cards)
             });
-    } 
+    },
+    methodTest() {
+        console.log('test oook')
+    }
   },
   mounted() {
         this.createCards();
@@ -34,8 +37,10 @@ export default {
 
 <template>
     <main class="card-list-general">
+        
         <SearchMain
             :cards = "cards" 
+            @search-name="methodTest"
         />
         <h3>Number of cards: {{ cards.length }}</h3>
         <div class="card-list">

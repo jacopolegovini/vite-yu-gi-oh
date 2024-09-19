@@ -30,7 +30,7 @@ export default {
         <img :src="card.card_images[0].image_url" :alt="card.name">
         <section>
             <h4>{{ card.name }}</h4>
-            <p>{{ card.race }}</p>
+            <p>{{ card.archetype }}</p>
         </section>
     </div>
 </template>
