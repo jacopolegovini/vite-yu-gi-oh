@@ -34,7 +34,9 @@ export default {
 
 <template>
     <main class="card-list-general">
-        <SearchMain/>
+        <SearchMain
+            :cards = "cards" 
+        />
         <h3>Number of cards: {{ cards.length }}</h3>
         <div class="card-list">
             <SingleCard v-for="(card, index) in cards" :key="index"
