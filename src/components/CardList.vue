@@ -1,4 +1,5 @@
 <script>
+import SearchMain from './SearchMain.vue';
 import SingleCard from './SingleCard.vue';
 import axios from 'axios';
 
@@ -25,13 +26,15 @@ export default {
         this.createCards();
   },
   components: {
-    SingleCard
+    SingleCard,
+    SearchMain
   }
 }
 </script>
 
 <template>
     <main class="card-list-general">
+        <SearchMain/>
         <h3>Number of cards: {{ cards.length }}</h3>
         <div class="card-list">
             <SingleCard v-for="(card, index) in cards" :key="index"

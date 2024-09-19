@@ -13,7 +13,7 @@ export default {
     myTimeout() {
         setTimeout(() => {
             store.changeVariable();
-        }, 2000);
+        }, 1000);
     }
   },
   mounted() {
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-    <main >
+    <main>
         <div class="container">
             <div v-show="store.loaded===true"><CardList/></div>
             <div v-show="store.loaded===false"><LoaderCardList/></div>
@@ -38,5 +38,6 @@ export default {
 <style scoped>
     main {
         background-color: #D48F3B;
+        padding: 20px 0;
     }
 </style>
