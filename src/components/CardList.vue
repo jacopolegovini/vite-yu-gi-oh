@@ -7,12 +7,22 @@ export default {
   data() {
     return {
         cards: [],
-        apiUrl: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0'
+        apiUrl: `https://db.ygoprodeck.com/api/v7/cardinfo.php/`
     }
   },
   methods: {
-    createCards(){
-        axios.get(this.apiUrl)
+    modifyUrl(apiUrl){
+        console.log(apiUrl)
+        console.log('test')
+    },
+    createCards(searchedName = ''){
+        axios.get(this.apiUrl, {
+            params: {
+                num: 20,
+                offset: 0,
+                archetype: searchedName
+            }
+        })
             .then((response) => {
                 console.log(response.data.data[0].name)
                 for (let i = 0; i < response.data.data.length; i++) {
@@ -22,7 +32,7 @@ export default {
             });
     },
     findName(searchedName) {
-        console.log('test oook')
+        console.log('test ok')
         console.log(searchedName);
     }
   },
