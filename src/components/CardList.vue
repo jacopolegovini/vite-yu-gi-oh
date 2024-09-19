@@ -21,8 +21,9 @@ export default {
                 console.log(this.cards)
             });
     },
-    methodTest() {
+    findName(searchedName) {
         console.log('test oook')
+        console.log(searchedName);
     }
   },
   mounted() {
@@ -40,7 +41,7 @@ export default {
         
         <SearchMain
             :cards = "cards" 
-            @search-name="methodTest"
+            @search-name="findName"
         />
         <h3>Number of cards: {{ cards.length }}</h3>
         <div class="card-list">

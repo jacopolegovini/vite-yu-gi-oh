@@ -8,9 +8,8 @@ export default {
     }
   },
   methods: {
-    searchName() {
-        console.log(this.searchedName)
-        this.$emit('findName')
+    searchName(searchedName) {
+        this.$emit('searchName', searchedName);
     }
   },
 
@@ -22,12 +21,12 @@ export default {
   }
 }
 
-const searchedName = ''
+
 </script>
 
 <template>
     <div class="search-input">
-        <select v-model="searchedName" @change="searchName">
+        <select v-model="searchedName" @change="searchName(searchedName)">
             <option disabled value="">Seleziona un archetipo</option>
             <option v-for="(card, index) in cards" :key="index">
                 <div>{{ card.archetype }}</div>
