@@ -44,3 +44,8 @@ export default {
         margin-bottom: 10px;
     }
 </style>
+
+
+
+<!-- Popolare la select con la nuova api archetype
+  -->

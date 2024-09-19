@@ -7,7 +7,10 @@ export default {
   data() {
     return {
         cards: [],
-        apiUrl: `https://db.ygoprodeck.com/api/v7/cardinfo.php/`
+        archetypes: [],
+        apiUrl: `https://db.ygoprodeck.com/api/v7/cardinfo.php`,
+        apiCall: '',
+        apiUrlArchetype: 'https://db.ygoprodeck.com/api/v7/archetypes.php'
     }
   },
   methods: {
@@ -16,27 +19,33 @@ export default {
         console.log('test')
     },
     createCards(searchedName = ''){
-        axios.get(this.apiUrl, {
-            params: {
-                num: 20,
-                offset: 0,
-                archetype: searchedName
-            }
+        if (searchedName !== '') {this.apiCall = this.apiUrl + `?archetype=${searchedName}`} 
+        else {
+            this.apiCall = this.apiUrl + '?num=20&offset=30'
+        }
+        axios.get(this.apiCall, {
         })
             .then((response) => {
-                console.log(response.data.data[0].name)
-                for (let i = 0; i < response.data.data.length; i++) {
-                    this.cards.push(response.data.data[i])
-                }
+                console.dir(response)
+                this.cards = response.data.data;
                 console.log(this.cards)
             });
+    },
+    getArchetype() {
+        axios.get(this.apiUrlArchetype)
+            .then((response) => {
+                this.archetypes = response.data
+                console.log(this.archetypes)
+            })
     },
     findName(searchedName) {
         console.log('test ok')
         console.log(searchedName);
+        this.createCards(searchedName)
     }
   },
   mounted() {
+        this.getArchetype();
         this.createCards();
   },
   components: {
